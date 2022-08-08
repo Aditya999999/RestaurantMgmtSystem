@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RMS.Web.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-warning" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |*@
+                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                @*<a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>*@
+                <a class="btn btn-primary"
+                                   asp-area="Demos" asp-controller="Menus" asp-action="Index">Back2Menu</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

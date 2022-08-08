@@ -1,0 +1,90 @@
+﻿@model IEnumerable<RMS.Web.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-decoration-style:wavy">&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;<b>ORDERS</b>&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+    
+</p>
+<table class="table" style=" background-color:darkgray">
+    <thead style="background-color:blueviolet">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FixedTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FixedTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item.ItemName)
+            </td>
+            <td>
+                @*<a class="btn btn-block" asp-action="Edit" asp-route-id="@item.OrderId">Edit</a> |*@
+                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.OrderId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.OrderId">Delete</a> |
+                <a class="btn btn-primary" 
+                                asp-area="Demos" asp-controller="OrderDetails" asp-action="Index">ViewOrderDetails</a>
+            </td>
+        </tr>
+
+}
+
+    </tbody>
+</table>
+
+

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RMS.Web.Models.ItemCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;ITEM CATEGORY&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;&diams;</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table" style="background-color:burlywood">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemCategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemsAvailable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemsAvailable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menu.MenuName)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.ItemCategoryId">Edit</a> |*@
+                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.ItemCategoryId">Details</a> |
+                @*<a asp-action="Delete" asp-route-id="@item.ItemCategoryId">Delete</a>*@
+                <a class="btn btn-warning"
+                                asp-area="Demos" asp-controller="Items" asp-action="Index">ViewItems</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
