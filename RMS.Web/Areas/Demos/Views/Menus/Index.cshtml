@@ -52,9 +52,9 @@
                 @Html.DisplayFor(modelItem => item.UpdatedDate)
             </td>
             <td>
-                @*<a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |*@
+              @*  <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |*@
                 <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
-                @*<a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>*@
+                @*<a  class="btn btn-info" asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>*@
                 <a class="btn btn-danger"
                                    asp-area="Demos" asp-controller="ItemCategories" asp-action="Index">ViewItemCategories</a>
             </td>
